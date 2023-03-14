@@ -1,97 +1,198 @@
+/*-------------------- Generic --------------------*/
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --theme-color-1: rgb(29, 31, 42);
+  --theme-color-2: rgb(0, 78, 168);
+  --text-color: rgb(135, 138, 149);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(135, 138, 149);
+  line-height: 1.5;
+}
+
+.app {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+@media screen and (min-width: 576px) {
+  .app {
+    width: 576px;
+  }
+}
+
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__group {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form__label {
+  margin-bottom: .5rem;
+  display: inline-block;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(33, 37, 41);
+  background-color: rgb(255, 255, 255);
+  background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+}
+
+.button {
+  display: block;
+  padding: .375rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.button.button--default {
+  color: rgb(33, 37, 41);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(206, 212, 218);
+}
+
+@media (pointer: fine) {
+  .button.button--default:hover {
+    color: rgb(33, 37, 41);
+    background-color: rgb(206, 212, 218);
+    border-color: rgb(206, 212, 218);
+  }
+}
+
+.button.button--primary {
+  color: rgb(255, 255, 255);
+  background-color: var(--theme-color-1);
+  border-color: var(--theme-color-1);
+}
+
+@media (pointer: fine) {
+  .button.button--primary:hover {
+    color: var(--theme-color-1);
+    background-color: rgb(255, 255, 255);
+    border-color: var(--theme-color-1);
+  }
+}
+
+.button--large {
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  -webkit-border-radius: .3rem;
+  -moz-border-radius: .3rem;
+  border-radius: .3rem;
+}
+
+/*-------------------- Header Section --------------------*/
+.header__section {
+  padding: .8125rem 2rem;
+  background-color: var(--theme-color-1);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/*-------------------- Fee Section --------------------*/
+.fee__group {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  gap: .5rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.fee__buttons {
+  display: flex;
+  gap: .5rem;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/*-------------------- Result Section --------------------*/
+.result__card {
+  border: 1px solid rgb(237, 238, 238);
+  background-color: rgb(246, 246, 246);
+  padding: 2.5rem 1.25rem;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+}
+
+.result__paragraph {
+  margin-bottom: 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.result__paragraph + .result__paragraph {
+  margin-top: .25rem;
 }
 
-.card {
-  padding: 2em;
+.result__fee-value {
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--theme-color-1);
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.result__total-value {
+  margin-top: .5rem;
+  margin-bottom: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--theme-color-1);
+  text-align: center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/*-------------------- Calculate Section --------------------*/
+.calculate__section {
+  padding-top: 0;
+  padding-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.calculate__container {
+  display: flex;
+  gap: .5rem;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.calculate__container button {
+  width: 100%;
 }

@@ -1,13 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de cuotas</title>
+
+  <!-- Start: Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <!-- End: Fonts -->
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+</head>
+<body>
+<div class="app">
+  <!-- Start: Header Section -->
+  <header class="header__section">
+    <div class="container">
+      Calculadora de cuotas
+    </div>
+  </header>
+  <!-- End: Header Section -->
+
+  <!-- Start: Form Section -->
+  <main class="form__section">
+    <div class="container">
+      <div class="form__group">
+        <label for="input-amount" class="form__label">Monto en préstamo</label>
+        <input type="number" class="form__input" name="input-amount" id="input-amount" placeholder="Ej: 3500">
+      </div>
+      <div class="form__group">
+        <label for="input-tea" class="form__label">TEA %</label>
+        <input type="number" class="form__input" name="input-tea" id="input-tea" placeholder="Ej: 69.78">
+      </div>
+      <div class="form__group">
+        <label for="input-fee" class="form__label"># de cuotas</label>
+        <div class="fee__group">
+          <input type="number" class="form__input" id="input-fee" name="input-fee" value="2" min="2" max="72">
+          <div class="fee__buttons">
+            <button type="button" class="button button--default" id="increase-button">+</button>
+            <button type="button" class="button button--default" id="decrease-button">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- End: Form Section -->
+
+  <!-- Start: Result Section -->
+  <section class="result__section">
+    <div class="container">
+      <div class="result__card">
+        <p class="result__paragraph">Tu cuota aproximada es:</p>
+        <h2 class="result__fee-value">
+          S/ <span id="tag-fee">0.00</span>
+        </h2>
+        <p class="result__paragraph">
+          En base a tu Tasa Mensual:
+          <strong><span id="tag-tem">0.00</span>%</strong>
+        </p>
+        <p class="result__paragraph">Pagando un total de:</p>
+        <h3 class="result__total-value">
+          S/ <span id="tag-total">0.00</span>
+        </h3>
+      </div>
+    </div>
+  </section>
+  <!-- End: Result Section -->
+
+  <!-- Start: Calculate Section -->
+  <section class="calculate__section">
+    <div class="calculate__container">
+      <button type="button" class="button button--default button--large" id="clean-button">Limpiar</button>
+      <button type="button" class="button button--primary button--large" id="calculate-button">Calcular</button>
+    </div>
+  </section>
+  <!-- End: Calculate Section -->
+</div>
+<script type="module" src="/main.js"></script>
+</body>
 </html>
