@@ -14,6 +14,21 @@ let inputAmount = document.getElementById('input-amount'),
   decreaseButton = document.getElementById('decrease-button'),
   increaseButton = document.getElementById('increase-button')
 
+const validateInput = el => {
+  if (el.value === '') {
+    let validationFeedback = document.createElement('span')
+    validationFeedback.classList.add('form__validation')
+    validationFeedback.textContent = 'Debes llenar este campo.'
+    validationFeedback.role = 'alert'
+
+    el.classList.add('form__input--invalid')
+    el.after(validationFeedback)
+    return false
+  }
+
+  return true
+}
+
 /**
  * Asignación de evento para aumentar valor de dataNumberFee.
  */
@@ -34,6 +49,15 @@ increaseButton.addEventListener('click', () => {
   inputFee.value = Number(inputFee.value) + 1
 })
 
+inputAmount.addEventListener('input', () => {
+  if (!inputAmount.classList.contains('form__input--invalid')) {
+    return
+  }
+
+  inputAmount.classList.remove('form__input--invalid')
+  inputAmount.nextSibling.remove()
+})
+
 /**
  * Asignación de evento para mantener valor de dataNumberFee en rango.
  */
@@ -49,6 +73,8 @@ inputFee.addEventListener('change', () => {
  * Asignación de evento para calcular resultados.
  */
 calculateButton.addEventListener('click', () => {
+  if (validateInput(inputAmount) && validateInput(inputTea)) return
+
   let valueTea = Number(inputTea.value) / 100
 
   let valueTem = (1 + valueTea) ** (1 / 12) - 1
